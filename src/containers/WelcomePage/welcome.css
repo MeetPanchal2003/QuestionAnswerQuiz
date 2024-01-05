@@ -17,6 +17,13 @@
     text-align: center;
 }
 
+.WelcomeMenudivCenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 .welcomeHeader{
     font-size: 60px;
     font-weight: 800;
@@ -25,11 +32,21 @@
     text-shadow: 2px 3px black;
 }
 
+.welcomeMenuTitle{
+    font-size: 45px;
+    font-weight: 700;
+    border-bottom: #60797d 2px solid;
+    margin-bottom: 20px;
+}
+
 .welcomeMenu{
     font-size: 45px;
     font-weight: 700;
     text-shadow: 2px 3px rgb(117,177,188);
-    
+}
+
+.MenuTitle{
+    text-shadow: 2px 3px #000000;
 }
 
 .WelcomeMenuItem{
@@ -59,4 +76,41 @@
   .WelcomeMenuItem:hover:after {
     opacity: 1;
     left: -25px;
+  }
+
+  @media (max-width: 800px) {
+    .welcomeHeader{
+        font-size: 40px;
+        font-weight: 800;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        text-shadow: 2px 3px black;
+    }
+
+    .welcomepage{
+        background-color: #2a2d31;
+        background-image: url(../../assets/images/wp3913041-quiz-wallpapers.jpg);
+        min-height: 90vh;
+        display: flex;
+        flex-direction: column;
+        padding-top: 50px;
+        align-items: center;
+        justify-content: start;
+        font-size: calc(10px + 2vmin);
+        color: white;
+    }
+
+    .WelcomeMenudivCenter{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        min-height: 250px;
+    }
+
+    .welcomeMenu{
+        font-size: 35px;
+        font-weight: 700;
+        text-shadow: 2px 3px rgb(117,177,188);
+    }
   }

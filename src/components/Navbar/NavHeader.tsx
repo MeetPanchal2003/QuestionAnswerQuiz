@@ -5,11 +5,11 @@ import { faBars } from "@fortawesome/free-solid-svg-icons"; // Import the specif
 import "../../assets/styles/Navbar.css";
 import { useMyContext } from "../../ContextData/MyContaxtData";
 import { useNavigate } from 'react-router-dom';
-import Quizlogo from '../../assets/images/quiz-icon-11.jpg'
+import Quizlogo from '../../assets/images/QuizLogo.png'
 import { useLocation } from 'react-router-dom';
+
 const NavHeader = ()=> {
   const location = useLocation();
-  console.log(location.pathname,"Path")
   const navigate = useNavigate();
   const {datas,setDatas} = useMyContext()
 
@@ -38,14 +38,14 @@ const NavHeader = ()=> {
   }
 
   const handleExit = ()=>{
-    window.close()
+    navigate('/');
   }
 
   return (
     <div>
-      <Navbar className="bg-body-tertiary">
+      <Navbar className="navBackground">
         <Container className={`${location.pathname === '/' ? "justify-content-center" : ""}`}>
-          <Navbar.Brand className="pointer fs-3" onClick={()=>{handleHome()}}>
+          <Navbar.Brand className="pointer bolderText text-white fs-3" onClick={()=>{handleHome()}}>
           <img
               src={Quizlogo}
               width="40"
@@ -57,7 +57,7 @@ const NavHeader = ()=> {
             </Navbar.Brand>
           <div className={`${location.pathname === '/' ? "d-none" : "navbar-Menuitem justify-content-end"}`}>
             <Navbar.Text>
-              <div className="pointer">
+              <div className="pointer text-white">
                 <FontAwesomeIcon
                   icon={faBars}
                   className="pointer"
@@ -82,12 +82,12 @@ const NavHeader = ()=> {
         }}
         aria-labelledby="contained-modal-title-vcenter"
       >
-        <Modal.Header className=" justify-content-center">
-          <Modal.Title id="contained-modal-title-vcenter">Menu</Modal.Title>
+        <Modal.Header className=" justify-content-center ">
+          <Modal.Title className="bolderText" id="contained-modal-title-vcenter ">Menu</Modal.Title>
         </Modal.Header>
-        <Modal.Body className="grid-example py-0">
-          <Container>
-            <div>
+        <Modal.Body className="grid-example p-0">
+          <Container className="">
+            <div >
               <Row>
                 <div className="Menu">
                   <small className="MenuItem" onClick={()=> handleHide()}>Resume</small>

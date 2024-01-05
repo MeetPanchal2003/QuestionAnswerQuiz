@@ -86,8 +86,10 @@ function QuestionMenu() {
         setGetDataFlag(true);
       } else {
         setGetDataFlag(false);
-        new Promise((resolve) => setTimeout(resolve, 5000));
-        return nextButtonApiCall();
+        setTimeout(() => {
+          nextButtonApiCall();
+          console.log('After 10 seconds');
+        }, 3000);
       }
     });
   };
@@ -140,6 +142,22 @@ function QuestionMenu() {
     setselectedAnswer('')
     setselected(false)
     handleApiResponse()
+  }
+
+  const Performance = ()=>{
+    if(datas.correctAns <= 2){
+      return "Very Low"
+    }else if(datas.correctAns <= 4){
+      return "Low"
+    }else if(datas.correctAns <= 6){
+      return "Medium"
+    }else if(datas.correctAns <= 8){
+      return "High"
+    }else if(datas.correctAns <= 10){
+      return "Very High"
+    }else {
+      return "Under Process"
+    }
   }
 
   useEffect(() => {
@@ -286,6 +304,30 @@ function QuestionMenu() {
                 </Col>
                 <Col className="border p-1" xs={6} md={6}>
                   <p className="m-0 text-center">{datas.incorrectAns}</p>
+                </Col>
+              </Row>
+              <Row>
+                <Col className="border p-1" xs={6} md={6}>
+                  <p className="m-0 bolderText">Passing Score</p>
+                </Col>
+                <Col className="border p-1" xs={6} md={6}>
+                  <p className="m-0 text-center">60%</p>
+                </Col>
+              </Row>
+              <Row>
+                <Col className="border p-1" xs={6} md={6}>
+                  <p className="m-0 bolderText">Your Score</p>
+                </Col>
+                <Col className="border p-1" xs={6} md={6}>
+                  <p className="m-0 text-center">{datas.correctAns * 10}%</p>
+                </Col>
+              </Row>
+              <Row>
+                <Col className="border p-1" xs={6} md={6}>
+                  <p className="m-0 bolderText">Your Performance</p>
+                </Col>
+                <Col className="border p-1" xs={6} md={6}>
+                  <p className="m-0 text-center">{Performance()}</p>
                 </Col>
               </Row>
             </div>

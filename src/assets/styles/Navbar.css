@@ -1,3 +1,9 @@
+.navBackground{
+    background-color: rgb(66 98 104);
+    border-bottom: 1px solid black;
+    color: white;
+}
+
 .logoSize{
     font-size: 27px;
 }
@@ -14,7 +20,7 @@
     margin-bottom: 5px;
 }
 
-.MenuItem{
+/* .MenuItem{
     font-size: 25px;
     font-weight: 600;
     display: flex;
@@ -32,4 +38,43 @@
     justify-content: center;
     margin-top: 5px;
     margin-bottom: 5px;
+} */
+
+.modal-content {
+    background: rgb(117,177,188) !important
 }
+
+
+
+.MenuItem{
+    color: white;
+    font-size: 25px;
+    font-weight: 700;
+    text-shadow: 2px 3px 10px #000000;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+    margin-bottom: 5px;
+}
+
+.MenuItem:hover{
+    color: red;
+    padding-right: 0px;
+    padding-left:10px;
+    text-shadow: 2px 3px 2px black;
+}
+
+.MenuItem:after {
+    content: '»';
+    position: absolute;
+    opacity: 0;  
+    top: -2px;
+    left: -20px;
+    transition: 0.2s;
+  }
+  
+  .MenuItem:hover:after {
+    opacity: 1;
+    left: -25px;
+  }

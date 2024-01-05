@@ -28,17 +28,41 @@
 }
 
 .bolderText{
-  font-weight: 600;
+  font-weight: 700 ;
 }
 
 .App-Main {
   background-color: #282c34;
   background-image: url(./assets/images/wp3913041-quiz-wallpapers.jpg);
-  min-height: 90vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+
+@media (max-width: 800px) {
+  .nextButton{
+    padding: 2px 50px;
+    color: black;
+    font-size: medium;
+    font-weight: 600;
+    box-shadow: 1px 2px 5px #000;
+    border-radius: 3px;
+    border: none;
+  }
+  
+  .submitButton{
+    padding: 2px 50px;
+    background-color: rgb(220,53,69);
+    color: black;
+    font-size: medium;
+    font-weight: 600;
+    box-shadow: 1px 2px 5px #000;
+    border-radius: 3px;
+    border: none;
+  }
 }
