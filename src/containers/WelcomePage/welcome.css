@@ -1,0 +1,62 @@
+.welcomepage{
+        background-color: #2a2d31;
+        background-image: url(../../assets/images/wp3913041-quiz-wallpapers.jpg);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: calc(10px + 2vmin);
+        color: white;
+}
+
+.divCenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.welcomeHeader{
+    font-size: 60px;
+    font-weight: 800;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    text-shadow: 2px 3px black;
+}
+
+.welcomeMenu{
+    font-size: 45px;
+    font-weight: 700;
+    text-shadow: 2px 3px rgb(117,177,188);
+    
+}
+
+.WelcomeMenuItem{
+    text-shadow: 2px 3px #60797d;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.WelcomeMenuItem:hover{
+    color: red;
+    padding-right: 0px;
+    padding-left:10px;
+    text-shadow: 2px 3px black;
+}
+
+.WelcomeMenuItem:after {
+    content: '»';
+    position: absolute;
+    opacity: 0;  
+    top: -2px;
+    left: -20px;
+    transition: 0.2s;
+  }
+  
+  .WelcomeMenuItem:hover:after {
+    opacity: 1;
+    left: -25px;
+  }

@@ -1,0 +1,20 @@
+
+.enablecolor{
+    background: rgb(99, 168, 195);
+  }
+  
+  .disablecolor{
+    background: rgb(182, 182, 182);
+  }
+
+  .BorderRemove{
+    border: none;
+  }
+
+  .correctAnsBackground{
+    background-color: rgb(255, 108, 108);
+  }
+
+  .incorrectAnsBackground{
+    background-color: rgb(255, 108, 108);
+  }

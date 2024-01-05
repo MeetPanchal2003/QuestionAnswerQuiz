@@ -1,0 +1,35 @@
+.logoSize{
+    font-size: 27px;
+}
+
+.navbar-expand .navbar-Menuitem {
+    display: flex;
+    flex-basis: auto;
+}
+
+.Menu{
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.MenuItem{
+    font-size: 25px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.MenuItem:hover{
+    cursor: pointer;
+    font-weight: 600;
+    color: red;
+    border-bottom: 2px solid red;
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
