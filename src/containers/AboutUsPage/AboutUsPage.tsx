@@ -1,15 +1,15 @@
 import NavHeader from "../../components/Navbar/NavHeader";
 import Footer from "../../components/Footer/Footer";
-import QuestionMenu from "../../components/QuestionMenu/QuestionMenu";
+import Aboutus from "../../components/About/About";
 
-function Home() {
+function About() {
   return (
     <div>
       <NavHeader />
-      <QuestionMenu />
+      <Aboutus />
       <Footer />
     </div>
   );
 }
 
-export default Home;
+export default About;

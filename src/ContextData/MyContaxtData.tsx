@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useState, Dispatch, SetStateAction } from 'react';
+import React, {
+  createContext,
+  useContext,
+  useState,
+  Dispatch,
+  SetStateAction,
+} from "react";
 
 interface MyContextData {
   attemptAns: number;
@@ -6,9 +12,14 @@ interface MyContextData {
   incorrectAns: number;
 }
 
-const MyContext = createContext<{ datas: MyContextData; setDatas: Dispatch<SetStateAction<MyContextData>> } | undefined>(undefined);
+const MyContext = createContext<
+  | { datas: MyContextData; setDatas: Dispatch<SetStateAction<MyContextData>> }
+  | undefined
+>(undefined);
 
-export const MyContextProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const MyContextProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   const [contextData, setContextData] = useState<MyContextData>({
     attemptAns: 1,
     correctAns: 0,
@@ -27,7 +38,7 @@ export const useMyContext = () => {
   const context = useContext(MyContext);
 
   if (!context) {
-    throw new Error('useMyContext must be used within a MyContextProvider');
+    throw new Error("useContext Error..");
   }
 
   return context;

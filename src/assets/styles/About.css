@@ -1,0 +1,36 @@
+.Aboutuspage {
+  background-color: #2a2d31;
+  background-image: url(../../assets/images/wp3913041-quiz-wallpapers.jpg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.AboutusBlock {
+  border-radius: 15px;
+  background-color: rgb(127 189 201);
+  padding: 30px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  box-shadow: 2px 4px 10px black;
+}
+
+.AboutusText {
+  color: #2a2d31;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+@media (max-width: 800px) {
+  .AboutusBlock {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+  .AboutusText {
+    font-size: 15px;
+  }
+}

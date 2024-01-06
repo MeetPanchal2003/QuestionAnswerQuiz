@@ -1,12 +1,12 @@
-.pointer{
+.pointer {
   cursor: pointer;
 }
 
-.disablecursor{
+.disablecursor {
   cursor: not-allowed !important;
 }
 
-.nextButton{
+.nextButton {
   padding: 2px 50px;
   color: black;
   font-size: x-large;
@@ -16,9 +16,9 @@
   border: none;
 }
 
-.submitButton{
+.submitButton {
   padding: 2px 50px;
-  background-color: rgb(220,53,69);
+  background-color: rgb(220, 53, 69);
   color: black;
   font-size: x-large;
   font-weight: 600;
@@ -27,8 +27,8 @@
   border: none;
 }
 
-.bolderText{
-  font-weight: 700 ;
+.bolderText {
+  font-weight: 700;
 }
 
 .App-Main {
@@ -43,9 +43,8 @@
   color: white;
 }
 
-
 @media (max-width: 800px) {
-  .nextButton{
+  .nextButton {
     padding: 2px 50px;
     color: black;
     font-size: medium;
@@ -54,10 +53,10 @@
     border-radius: 3px;
     border: none;
   }
-  
-  .submitButton{
+
+  .submitButton {
     padding: 2px 50px;
-    background-color: rgb(220,53,69);
+    background-color: rgb(220, 53, 69);
     color: black;
     font-size: medium;
     font-weight: 600;

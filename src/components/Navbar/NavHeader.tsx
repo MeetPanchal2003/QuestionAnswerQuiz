@@ -1,23 +1,22 @@
-import React, { useState } from "react";
-import { Container, Modal, Row, Col, Button, Navbar } from "react-bootstrap";
+import { useState } from "react";
+import { Container, Modal, Row, Navbar } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons"; // Import the specific icon you want to use
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 import "../../assets/styles/Navbar.css";
 import { useMyContext } from "../../ContextData/MyContaxtData";
-import { useNavigate } from 'react-router-dom';
-import Quizlogo from '../../assets/images/QuizLogo.png'
-import { useLocation } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+import Quizlogo from "../../assets/images/QuizLogo.png";
+import { useLocation } from "react-router-dom";
 
-const NavHeader = ()=> {
+const NavHeader = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const {datas,setDatas} = useMyContext()
+  const { datas, setDatas } = useMyContext();
+  const [submitModal, setSubmitModal] = useState(false);
 
   const handleHome = () => {
-    navigate('/');
+    navigate("/");
   };
-
-  const [submitModal, setSubmitModal] = useState(false);
 
   const handleShow = () => {
     setSubmitModal(true);
@@ -27,26 +26,35 @@ const NavHeader = ()=> {
     setSubmitModal(false);
   };
 
-  const handleRestart = ()=>{
+  const handleRestart = () => {
     setDatas({
       ...datas,
-        attemptAns: 0,
-        correctAns: 0,
-        incorrectAns: 0,
+      attemptAns: 0,
+      correctAns: 0,
+      incorrectAns: 0,
     });
-    handleHide()
-  }
+    handleHide();
+  };
 
-  const handleExit = ()=>{
-    navigate('/');
-  }
+  const handleExit = () => {
+    navigate("/");
+  };
 
   return (
     <div>
       <Navbar className="navBackground">
-        <Container className={`${location.pathname === '/' ? "justify-content-center" : ""}`}>
-          <Navbar.Brand className="pointer bolderText text-white fs-3" onClick={()=>{handleHome()}}>
-          <img
+        <Container
+          className={`${
+            location.pathname === "/quiz" ? "" : "justify-content-center"
+          }`}
+        >
+          <Navbar.Brand
+            className="pointer bolderText text-white fs-3"
+            onClick={() => {
+              handleHome();
+            }}
+          >
+            <img
               src={Quizlogo}
               width="40"
               height="40"
@@ -54,8 +62,14 @@ const NavHeader = ()=> {
               alt="React Bootstrap logo"
             />
             Quiz Game
-            </Navbar.Brand>
-          <div className={`${location.pathname === '/' ? "d-none" : "navbar-Menuitem justify-content-end"}`}>
+          </Navbar.Brand>
+          <div
+            className={`${
+              location.pathname === "/quiz"
+                ? "navbar-Menuitem justify-content-end"
+                : "d-none"
+            }`}
+          >
             <Navbar.Text>
               <div className="pointer text-white">
                 <FontAwesomeIcon
@@ -83,24 +97,35 @@ const NavHeader = ()=> {
         aria-labelledby="contained-modal-title-vcenter"
       >
         <Modal.Header className=" justify-content-center ">
-          <Modal.Title className="bolderText" id="contained-modal-title-vcenter ">Menu</Modal.Title>
+          <Modal.Title
+            className="bolderText"
+            id="contained-modal-title-vcenter "
+          >
+            Menu
+          </Modal.Title>
         </Modal.Header>
         <Modal.Body className="grid-example p-0">
           <Container className="">
-            <div >
+            <div>
               <Row>
                 <div className="Menu">
-                  <small className="MenuItem" onClick={()=> handleHide()}>Resume</small>
+                  <small className="MenuItem" onClick={() => handleHide()}>
+                    Resume
+                  </small>
                 </div>
               </Row>
               <Row>
                 <div className="Menu">
-                  <small className="MenuItem" onClick={()=> handleRestart()}>Restart</small>
+                  <small className="MenuItem" onClick={() => handleRestart()}>
+                    Restart
+                  </small>
                 </div>
               </Row>
               <Row>
                 <div className="Menu">
-                  <small className="MenuItem" onClick={()=> handleExit()}>Exit</small>
+                  <small className="MenuItem" onClick={() => handleExit()}>
+                    Exit
+                  </small>
                 </div>
               </Row>
             </div>
@@ -110,6 +135,6 @@ const NavHeader = ()=> {
       {/* /////////Modal end////////// */}
     </div>
   );
-}
+};
 
 export default NavHeader;

@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import QuestionApi from "../../API/QuestionApi/QuestionApi";
 import "../../assets/styles/QuestionMenu.css";
 import { Container, Modal, Row, Col, Button } from "react-bootstrap";
 import { useMyContext } from "../../ContextData/MyContaxtData";
+import { useNavigate } from "react-router-dom";
 
 interface QuestionData {
   type: string;
@@ -14,6 +15,7 @@ interface QuestionData {
 }
 
 function QuestionMenu() {
+  const navigate = useNavigate();
   const { datas, setDatas } = useMyContext();
 
   const [apiData, setApiData] = useState<QuestionData | null>(null);
@@ -22,6 +24,7 @@ function QuestionMenu() {
   const [selected, setselected] = useState<Boolean>(false);
   const [getDataFlag, setGetDataFlag] = useState<Boolean>(false);
   const [submitModal, setSubmitModal] = useState(false);
+  const { question, correct_answer } = apiData || {};
 
   const handleShow = () => {
     setSubmitModal(true);
@@ -31,21 +34,21 @@ function QuestionMenu() {
     setSubmitModal(false);
   };
 
-  const handleAttemptQuestions = (Attempt_ans:number) => {
+  const handleAttemptQuestions = (Attempt_ans: number) => {
     setDatas({
       ...datas,
       attemptAns: Attempt_ans,
     });
   };
 
-  const handleCorrectAnswer = (Corr_ans:number) => {
+  const handleCorrectAnswer = (Corr_ans: number) => {
     setDatas({
       ...datas,
       correctAns: Corr_ans,
     });
   };
 
-  const handleIncorrectAnswer = (Incorr_ans:number) => {
+  const handleIncorrectAnswer = (Incorr_ans: number) => {
     setDatas({
       ...datas,
       incorrectAns: Incorr_ans,
@@ -63,10 +66,14 @@ function QuestionMenu() {
 
   const handleRestartGame = () => {
     handleHide();
-    handleRestartQuestions()
+    handleRestartQuestions();
     setselected(!selected);
     setselectedAnswer("");
     handleApiResponse();
+  };
+
+  const handleExitGame = () => {
+    navigate("/");
   };
 
   const nextButtonApiCall = () => {
@@ -88,7 +95,7 @@ function QuestionMenu() {
         setGetDataFlag(false);
         setTimeout(() => {
           nextButtonApiCall();
-          console.log('After 10 seconds');
+          console.log("After 10 seconds");
         }, 3000);
       }
     });
@@ -99,10 +106,10 @@ function QuestionMenu() {
       setselected(!selected);
       if (Answer === correct_answer) {
         setselectedAnswer("Match");
-        handleCorrectAnswer(datas.correctAns + 1)
+        handleCorrectAnswer(datas.correctAns + 1);
       } else {
         setselectedAnswer(Answer);
-        handleIncorrectAnswer(datas.incorrectAns + 1)
+        handleIncorrectAnswer(datas.incorrectAns + 1);
       }
     }
   };
@@ -138,49 +145,48 @@ function QuestionMenu() {
   const handleSubmitResult = () => {
     handleShow();
   };
-  const RestartData = ()=>{
-    setselectedAnswer('')
-    setselected(false)
-    handleApiResponse()
-  }
 
-  const Performance = ()=>{
-    if(datas.correctAns <= 2){
-      return "Very Low"
-    }else if(datas.correctAns <= 4){
-      return "Low"
-    }else if(datas.correctAns <= 6){
-      return "Medium"
-    }else if(datas.correctAns <= 8){
-      return "High"
-    }else if(datas.correctAns <= 10){
-      return "Very High"
-    }else {
-      return "Under Process"
+  const RestartData = () => {
+    setselectedAnswer("");
+    setselected(false);
+    handleApiResponse();
+  };
+
+  const Performance = () => {
+    if (datas.correctAns <= 2) {
+      return "Very Low";
+    } else if (datas.correctAns <= 4) {
+      return "Low";
+    } else if (datas.correctAns <= 6) {
+      return "Medium";
+    } else if (datas.correctAns <= 8) {
+      return "High";
+    } else if (datas.correctAns <= 10) {
+      return "Very High";
+    } else {
+      return "Under Process";
     }
-  }
+  };
 
   useEffect(() => {
     setDatas({
       ...datas,
-        attemptAns: 1,
-        correctAns: 0,
-        incorrectAns: 0,
+      attemptAns: 1,
+      correctAns: 0,
+      incorrectAns: 0,
     });
     handleApiResponse();
   }, []);
 
   useEffect(() => {
-    if(datas.attemptAns === 0){
-      RestartData()
+    if (datas.attemptAns === 0) {
+      RestartData();
       setDatas({
         ...datas,
         attemptAns: 1,
       });
     }
   }, [datas.attemptAns]);
-
-  const { question, correct_answer } = apiData || {};
 
   return (
     <div className="App-Main ">
@@ -341,7 +347,13 @@ function QuestionMenu() {
           >
             Restart The Game
           </Button>
-          <Button>Exit The Game</Button>
+          <Button
+            onClick={() => {
+              handleExitGame();
+            }}
+          >
+            Exit The Game
+          </Button>
         </Modal.Footer>
       </Modal>
       {/* /////////Modal end////////// */}
