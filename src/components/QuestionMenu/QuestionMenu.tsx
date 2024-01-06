@@ -273,7 +273,7 @@ function QuestionMenu() {
 
       {/* ///Modal start/// */}
       <Modal
-        show={submitModal}
+        show={!submitModal}
         centered
         backdrop="static"
         keyboard={false}
@@ -340,20 +340,22 @@ function QuestionMenu() {
           </Container>
         </Modal.Body>
         <Modal.Footer className="justify-content-around BorderRemove">
-          <Button
+          <button
+          className="submitButton pointer"
             onClick={() => {
               handleRestartGame();
             }}
           >
-            Restart The Game
-          </Button>
-          <Button
+            Restart
+          </button>
+          <button
+          className="submitButton pointer"
             onClick={() => {
               handleExitGame();
             }}
           >
-            Exit The Game
-          </Button>
+            Exit
+          </button>
         </Modal.Footer>
       </Modal>
       {/* /////////Modal end////////// */}
