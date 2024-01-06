@@ -273,7 +273,7 @@ function QuestionMenu() {
 
       {/* ///Modal start/// */}
       <Modal
-        show={!submitModal}
+        show={submitModal}
         centered
         backdrop="static"
         keyboard={false}
